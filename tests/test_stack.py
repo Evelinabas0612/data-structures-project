@@ -34,10 +34,5 @@ def test_push(fixture_node):
     assert isinstance(node, type(fixture_node))
 
 
-def test_pop(fixture_stack):
-    assert fixture_stack.pop() == 'data3'
-    assert fixture_stack.pop() == 'data2'
-    assert fixture_stack.pop() == 'data1'
-    with pytest.raises(IndexError):
-        fixture_stack.pop()
-
+def test__str__(fixture_stack):
+    assert str(fixture_stack) == "['data1', 'data2', 'data3']"

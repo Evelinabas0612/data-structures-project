@@ -14,10 +14,8 @@ class Node:
 class Stack:
     """Класс для стека"""
 
-
     def __init__(self):
         """Конструктор класса Stack"""
-        self.stack = None
         self.top = None
 
     def push(self, data):
@@ -30,16 +28,21 @@ class Stack:
         node = Node(data, self.top)
         self.top = node
 
-
     def pop(self):
         """
         Метод для удаления элемента с вершины стека и его возвращения
 
         :return: данные удаленного элемента
         """
-        if len(self.stack) == 0:
+        if self.top is None:
             return None
-        else:
-            removed = self.stack.pop()
-            raise removed
+        removed_data = self.top.data
+        self.top = self.top.next_node
+        return removed_data
 
+    def __str__(self):
+        """
+        Возвращает строку, содержащую печатаемое неформальное представление объекта
+        """
+
+        return f"{self.top}"
