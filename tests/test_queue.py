@@ -36,4 +36,14 @@ def test_enqueue(fixture_queue):
     assert fixture_queue.head.data == "head"
     assert fixture_queue.tail.data == "tail"
 
-
+def test_dequeue(fixture_queue):
+    fixture_queue.enqueue('data1')
+    fixture_queue.enqueue('data2')
+    fixture_queue.enqueue('data3')
+    fixture_queue.dequeue()
+    assert fixture_queue.head.data == 'data2'
+    fixture_queue.dequeue()
+    assert fixture_queue.head.data == 'data3'
+    fixture_queue.dequeue()
+    with pytest.raises(AttributeError):
+        fixture_queue.head.data
