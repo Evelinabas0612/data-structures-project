@@ -19,6 +19,7 @@ if __name__ == '__main__':
 
     # метод get_data_by_id()
     user_data = ll.get_data_by_id(3)
+
     assert user_data == {'id': 3, 'username': 'mosh_s'}
 
     # работа блока try/except
